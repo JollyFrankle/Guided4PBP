@@ -13,8 +13,8 @@ import android.widget.Toast
 class MainActivity : AppCompatActivity() {
     var editTextName: EditText? = null
     var editTextEmail: EditText? = null
-    lateinit var textViewName: TextView
-    lateinit var textViewEmail: TextView
+    private lateinit var textViewName: TextView
+    private lateinit var textViewEmail: TextView
     private val myPreference = "myPref"
     private val name = "nameKey"
     private val email = "emailKey"
@@ -36,10 +36,12 @@ class MainActivity : AppCompatActivity() {
 
             editTextName?.setText(sharedPreferences!!.getString(email, ""))
         }
-    }
-    fun readData(view: View) {
+
         textViewEmail = findViewById(R.id.textViewEmail)
         textViewName = findViewById(R.id.textViewName)
+    }
+    fun readData(view: View) {
+
         var strName: String =
             editTextName?.text.toString().trim()
         var strEmail: String =
